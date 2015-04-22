@@ -1,5 +1,6 @@
-build/
+build/*
 nbproject/*
 !nbproject/project.properties
 !nbproject/project.xml
-/dist/
+lib/*
+nbbuild.xml
