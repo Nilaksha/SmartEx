@@ -209,7 +209,8 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"></div>
+                                        <div id="productID">1</div>
+                                        <div id="newMessageCount" class="huge"></div>
                                         <div>Recent Messages</div>
                                     </div>
                                 </div>
@@ -451,13 +452,16 @@
 
     </div>
     <!-- /#wrapper -->
-
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!-- dashboard -->
+    <script src="js/dashboard.js"></script>
+    
     <!-- Morris Charts JavaScript -->
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
