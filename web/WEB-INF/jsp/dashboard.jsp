@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Smart Friend Parent</a>
+                <a class="navbar-brand" href="javascript:dashboard();">Smart Friend Parent</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -106,7 +106,7 @@
                             </a>
                         </li>
                         <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
+                            <a href="messages/inbox">Read All New Messages</a>
                         </li>
                     </ul>
                 </li>
@@ -141,17 +141,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="profile.jsp"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="profile"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="inbox.jsp"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
                         <li>
-                            <a href="settings.jsp"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="settings"><i class="fa fa-fw fa-gear"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.jsp"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="login"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -160,22 +160,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="dashboard.jsp"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.jsp"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="charts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li>
-                        <a href="tables.jsp"><i class="fa fa-fw fa-table"></i> Tables</a>
+                        <a href="tables"><i class="fa fa-fw fa-table"></i> Tables</a>
                     </li>
                     <li>
-                        <a href="moods.jsp"><i class="fa fa-fw fa-child"></i> Moods</a>
+                        <a href="moods"><i class="fa fa-fw fa-child"></i> Moods</a>
                     </li>
                     <li>
-                        <a href="inbox.jsp"><i class="fa fa-fw fa-envelope"></i> Messages</a>
+                        <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Messages</a>
                     </li>
                     <li>
-                        <a href="tasks.jsp"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
+                        <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                     </li>
                 </ul>
             </div>
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="messages/inbox">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Messages</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
