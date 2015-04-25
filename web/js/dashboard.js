@@ -10,10 +10,14 @@ $(document).ready(function () {
     $("#productID").hide();
 });
 
+$(document).on('click', '#searchBtn', function(){
+    search();
+});
+
 function newMessageCount() {
 
     $.ajax({
-        url: "/SmartEx/message/newMessageCount",
+        url: "/SmartEx/messages/newMessageCount",
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
@@ -22,4 +26,14 @@ function newMessageCount() {
         error: function (e) {
         }
     });
+}
+
+function dashboard() {
+    
+    window.location.assign('/SmartEx/dashboard');
+}
+
+function messages() {
+    
+    window.location.assign('/SmartEx/messages/inbox');
 }

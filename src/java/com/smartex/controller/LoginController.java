@@ -20,20 +20,25 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Nilaksha
  */
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
     @Qualifier("loginService")
     private LoginService loginService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/login", method = RequestMethod.GET)
     public String login(ModelMap model) {
 
         return "login";
     }
+    
+    @RequestMapping(value="/dashboard", method = RequestMethod.GET)
+    public String dashboard(ModelMap model) {
 
-    @RequestMapping(method = RequestMethod.POST)
+        return "dashboard";
+    }
+
+    @RequestMapping(value="/dashboard", method = RequestMethod.POST)
     public String login2(@RequestParam("email") String email,
             @RequestParam("password") String password) {
 
