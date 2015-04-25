@@ -1,6 +1,5 @@
 build/*
 nbproject/*
-!nbproject/project.properties
-!nbproject/project.xml
 lib/*
 nbbuild.xml
+build.xml
