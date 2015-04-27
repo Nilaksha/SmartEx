@@ -7,11 +7,14 @@ package com.smartex.dao;
 
 /**
  *
- * @author Nilaksha
+ * @author user
  */
-public interface MessageDao {
+public interface TaskDao {
     
-    public int newMessageCount(String productID);
+    public int recentTaskCount(String productID);
     
-    public int lastRepliedTime(String productID);
+    public int lastAddedTaskCount(String productID);
+    
+    public int lastAddedTaskTime(String productID);
+
 }

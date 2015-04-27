@@ -6,11 +6,17 @@
 
 $(document).ready(function () {
 
-    newMessageCount();
     $("#productID").hide();
+    newMessageCount();
+    recentTaskCount();
+    recentActivityCount();
+    newMoodUpdatesCount();
+    lastAddedTaskCount();
+    lastAddedTaskTime();
+    lastRepliedTime();
 });
 
-$(document).on('click', '#searchBtn', function(){
+$(document).on('click', '#searchBtn', function () {
     search();
 });
 
@@ -28,12 +34,96 @@ function newMessageCount() {
     });
 }
 
+function recentTaskCount() {
+
+    $.ajax({
+        url: "/SmartEx/tasks/recentTaskCount",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#recentTaskCount").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function recentActivityCount() {
+
+    $.ajax({
+        url: "/SmartEx/charts/recentActivityCount",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#recentActivityCount").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function newMoodUpdatesCount() {
+
+    $.ajax({
+        url: "/SmartEx/moods/newMoodUpdatesCount",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#newMoodUpdatesCount").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function lastAddedTaskCount() {
+
+    $.ajax({
+        url: "/SmartEx/tasks/lastAddedTaskCount",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#lastAddedTaskCount").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function lastAddedTaskTime() {
+
+    $.ajax({
+        url: "/SmartEx/tasks/lastAddedTaskTime",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#lastAddedTaskTime").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function lastRepliedTime() {
+
+    $.ajax({
+        url: "/SmartEx/messages/lastRepliedTime",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#lastRepliedTime").text(response);
+        },
+        error: function (e) {
+        }
+    });
+}
+
 function dashboard() {
-    
+
     window.location.assign('/SmartEx/dashboard');
 }
 
 function messages() {
-    
+
     window.location.assign('/SmartEx/messages/inbox');
 }

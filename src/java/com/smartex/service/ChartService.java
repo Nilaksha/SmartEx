@@ -7,11 +7,9 @@ package com.smartex.service;
 
 /**
  *
- * @author Nilaksha
+ * @author user
  */
-public interface MessageService {
+public interface ChartService {
     
-    public int newMessageCount(String productID);
-
-    public int lastRepliedTime(String productID);
+    public int recentActivityCount(String productID);
 }

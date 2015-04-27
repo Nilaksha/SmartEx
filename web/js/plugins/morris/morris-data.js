@@ -68,14 +68,17 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
+            label: "Happy",
             value: 12
         }, {
-            label: "In-Store Sales",
+            label: "Good",
             value: 30
         }, {
-            label: "Mail-Order Sales",
+            label: "Sad",
             value: 20
+        }, {
+            label: "Boaring",
+            value: 30
         }],
         resize: true
     });

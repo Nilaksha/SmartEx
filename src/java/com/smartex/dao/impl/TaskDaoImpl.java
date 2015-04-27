@@ -6,7 +6,8 @@
 package com.smartex.dao.impl;
 
 import com.smartex.dao.BaseJdbcDao;
-import com.smartex.dao.MessageDao;
+import com.smartex.dao.TaskDao;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,24 +17,24 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Nilaksha
+ * @author user
  */
-@Repository("messageDao")
-public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
+@Repository("taskDao")
+public class TaskDaoImpl extends BaseJdbcDao implements TaskDao {
 
     @Override
-    public int newMessageCount(String productID) {
+    public int recentTaskCount(String productID) {
 
         Object[] objects = new Object[2];
 
         objects[0] = Integer.parseInt(productID);
-        objects[1] = "new";
+        objects[1] = "recent";
 
         StringBuilder queryData = new StringBuilder("");
         queryData.append("SELECT COUNT(*) ");
-        queryData.append("FROM messages m ");
-        queryData.append("WHERE m.productID = ? ");
-        queryData.append("AND m.status = ? ");
+        queryData.append("FROM tasks t ");
+        queryData.append("WHERE t.productID = ? ");
+        queryData.append("AND t.status = ? ");
 
         int count = getJdbcTemplate().queryForObject(
                 queryData.toString(), objects, Integer.class);
@@ -42,17 +43,40 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
     }
 
     @Override
-    public int lastRepliedTime(String productID) {
+    public int lastAddedTaskCount(String productID) {
 
         Object[] objects = new Object[1];
 
         objects[0] = Integer.parseInt(productID);
 
         StringBuilder queryData = new StringBuilder("");
-        queryData.append("SELECT MAX(DATE(sentTime)) ");
-        queryData.append("FROM sentmessages s ");
-        queryData.append("WHERE s.productID = ? ");
-        queryData.append("ORDER BY s.sentTime DESC");
+        queryData.append("SELECT COUNT(*) ");
+        queryData.append("FROM tasks t ");
+        queryData.append("WHERE DATE(t.time) = ");
+        queryData.append("(SELECT MAX(DATE(time)) ");
+        queryData.append("FROM tasks t ");
+        queryData.append("WHERE t.productID = ? ");
+        queryData.append("ORDER BY t.time DESC) ");
+
+        int count = getJdbcTemplate().queryForObject(
+                queryData.toString(), objects, Integer.class);
+
+        return count;
+
+    }
+
+    @Override
+    public int lastAddedTaskTime(String productID) {
+        
+        Object[] objects = new Object[1];
+
+        objects[0] = Integer.parseInt(productID);
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("SELECT MAX(DATE(time)) ");
+        queryData.append("FROM tasks t ");
+        queryData.append("WHERE t.productID = ? ");
+        queryData.append("ORDER BY t.time DESC");
 
         Date date = getJdbcTemplate().queryForObject(
                 queryData.toString(), objects, Date.class);
@@ -69,5 +93,5 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
         }
         return 0;
     }
-}
 
+}

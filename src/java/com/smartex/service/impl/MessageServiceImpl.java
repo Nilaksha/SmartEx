@@ -27,5 +27,11 @@ public class MessageServiceImpl implements MessageService {
         
         return messageDao.newMessageCount(productID);
     }
+
+    @Override
+    public int lastRepliedTime(String productID) {
+        
+        return messageDao.lastRepliedTime(productID);
+    }
     
 }

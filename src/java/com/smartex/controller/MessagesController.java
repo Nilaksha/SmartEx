@@ -65,4 +65,16 @@ public class MessagesController {
 
         return Integer.toString(count);
     }
+    
+    @RequestMapping(value = "/lastRepliedTime", method = RequestMethod.POST)
+    @ResponseBody
+    public String lastRepliedTime(@RequestParam("productID") String productID) {
+
+        Response<Map<String, String>> response = new Response<>();
+        Map<String, String> countData = new HashMap<>();
+        
+        int count = messageService.lastRepliedTime(productID);  
+
+        return Integer.toString(count);
+    }
 }

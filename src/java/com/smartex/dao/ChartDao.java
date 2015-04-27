@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.smartex.service;
+package com.smartex.dao;
 
 /**
  *
- * @author Nilaksha
+ * @author user
  */
-public interface MessageService {
+public interface ChartDao {
     
-    public int newMessageCount(String productID);
-
-    public int lastRepliedTime(String productID);
+    public int recentActivityCount(String productID);
 }

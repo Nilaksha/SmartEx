@@ -7,11 +7,13 @@ package com.smartex.service;
 
 /**
  *
- * @author Nilaksha
+ * @author user
  */
-public interface MessageService {
-    
-    public int newMessageCount(String productID);
+public interface TaskService {
 
-    public int lastRepliedTime(String productID);
+    public int recentTaskCount(String productID);
+
+    public int lastAddedTaskCount(String productID);
+
+    public int lastAddedTaskTime(String productID);
 }
