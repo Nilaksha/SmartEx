@@ -29,7 +29,8 @@ public class LoginDaoImpl extends BaseJdbcDao implements LoginDao {
         objects[0] = email;
 
         StringBuilder queryData = new StringBuilder("");
-        queryData.append("SELECT u.email, \n");
+        queryData.append("SELECT u.product_id, \n");
+        queryData.append("u.email, \n");
         queryData.append("u.password \n");
         queryData.append("FROM users u \n");
         queryData.append("WHERE u.email = ? \n");
@@ -39,6 +40,7 @@ public class LoginDaoImpl extends BaseJdbcDao implements LoginDao {
             public LoginDto mapRow(ResultSet rs, int rowNum) throws SQLException {
 
                 LoginDto loginDto = new LoginDto();
+                loginDto.setProductID(rs.getInt("product_id"));
                 loginDto.setEmail(rs.getString("email"));
                 loginDto.setPassword(rs.getString("password"));
 

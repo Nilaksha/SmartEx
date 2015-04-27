@@ -18,7 +18,10 @@
     <mvc:resources mapping="/messages/**" location="/messages/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     
-
+    <mvc:interceptors>
+        <bean class="com.smartex.util.SessionValidator" />
+    </mvc:interceptors>
+    
     <mvc:view-controller path="/" view-name="login"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

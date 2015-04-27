@@ -6,11 +6,11 @@
 
 $(document).ready(function () {
 
-    newMessageCount();
     $("#productID").hide();
+    newMessageCount();
 });
 
-$(document).on('click', '#searchBtn', function(){
+$(document).on('click', '#searchBtn', function () {
     search();
 });
 
@@ -29,11 +29,11 @@ function newMessageCount() {
 }
 
 function dashboard() {
-    
+
     window.location.assign('/SmartEx/dashboard');
 }
 
 function messages() {
-    
+
     window.location.assign('/SmartEx/messages/inbox');
 }

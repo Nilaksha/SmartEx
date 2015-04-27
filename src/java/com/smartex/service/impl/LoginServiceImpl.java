@@ -25,13 +25,15 @@ public class LoginServiceImpl implements LoginService {
     private LoginDao loginDao;
 
     @Override
-    public boolean login(LoginDto loginDto) {
+    public LoginDto login(LoginDto loginDto) {
 
         List<LoginDto> results = loginDao.login(loginDto.getEmail());
+        LoginDto succesLoginDto = new LoginDto();
+        
         if (!results.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+            
+            succesLoginDto = results.get(0);
+        } 
+        return succesLoginDto;
     }
 }

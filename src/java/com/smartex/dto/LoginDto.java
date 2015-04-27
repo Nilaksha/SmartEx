@@ -13,6 +13,7 @@ public class LoginDto {
     
     private String email;
     private String password;
+    private Integer productID;
 
     public String getEmail() {
         return email;
@@ -28,5 +29,13 @@ public class LoginDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getProductID() {
+        return productID;
+    }
+
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 }
