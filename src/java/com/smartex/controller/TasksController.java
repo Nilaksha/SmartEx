@@ -6,7 +6,6 @@
 package com.smartex.controller;
 
 import com.smartex.service.TaskService;
-import com.smartex.util.Response;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +38,6 @@ public class TasksController {
     @RequestMapping(value = "/recentTaskCount", method = RequestMethod.POST)
     @ResponseBody
     public String recentMessageCount(@RequestParam("productID") String productID) {
-
-        Response<Map<String, String>> response = new Response<>();
-        Map<String, String> countData = new HashMap<>();
         
         int count = taskService.recentTaskCount(productID);  
 
@@ -51,9 +47,6 @@ public class TasksController {
     @RequestMapping(value = "/lastAddedTaskCount", method = RequestMethod.POST)
     @ResponseBody
     public String lastAddedTaskCount(@RequestParam("productID") String productID) {
-
-        Response<Map<String, String>> response = new Response<>();
-        Map<String, String> countData = new HashMap<>();
         
         int count = taskService.lastAddedTaskCount(productID);  
 
@@ -63,9 +56,6 @@ public class TasksController {
     @RequestMapping(value = "/lastAddedTaskTime", method = RequestMethod.POST)
     @ResponseBody
     public String lastAddedTaskTime(@RequestParam("productID") String productID) {
-
-        Response<Map<String, String>> response = new Response<>();
-        Map<String, String> countData = new HashMap<>();
         
         int count = taskService.lastAddedTaskTime(productID);  
 

@@ -13,5 +13,5 @@ import com.smartex.dto.LoginDto;
  */
 public interface LoginService {
 
-    public boolean login(LoginDto loginDto);
+    public LoginDto login(LoginDto loginDto);
 }

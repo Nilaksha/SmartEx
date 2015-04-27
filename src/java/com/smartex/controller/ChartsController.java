@@ -6,7 +6,6 @@
 package com.smartex.controller;
 
 import com.smartex.service.ChartService;
-import com.smartex.util.Response;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +38,6 @@ public class ChartsController {
     @RequestMapping(value = "/recentActivityCount", method = RequestMethod.POST)
     @ResponseBody
     public String newMessageCount(@RequestParam("productID") String productID) {
-
-        Response<Map<String, String>> response = new Response<>();
-        Map<String, String> countData = new HashMap<>();
         
         int count = chartService.recentActivityCount(productID);  
 

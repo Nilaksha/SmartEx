@@ -7,6 +7,8 @@ package com.smartex.controller;
 
 import com.smartex.dto.LoginDto;
 import com.smartex.service.LoginService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,31 +28,34 @@ public class LoginController {
     @Qualifier("loginService")
     private LoginService loginService;
 
-    @RequestMapping(value="/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap model) {
 
         return "login";
     }
     
-    @RequestMapping(value="/dashboard", method = RequestMethod.GET)
-    public String dashboard(ModelMap model) {
-
-        return "dashboard";
-    }
-
     @RequestMapping(value="/dashboard", method = RequestMethod.POST)
-    public String login2(@RequestParam("email") String email,
+    public String login2(HttpSession session, @RequestParam("email") String email,
             @RequestParam("password") String password) {
 
         LoginDto loginDto = new LoginDto();
         loginDto.setEmail(email);
         loginDto.setPassword(password);
-
-        if (loginService.login(loginDto)) {
+        
+        loginDto = loginService.login(loginDto);
+        if (loginDto.getProductID()!=null) {
+            session.setAttribute("productID", loginDto.getProductID());
             return "dashboard";
 
         } else {
             return "login";
         }
+    }
+    
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+
+        request.getSession().invalidate();
+        return "login";
     }
 }
