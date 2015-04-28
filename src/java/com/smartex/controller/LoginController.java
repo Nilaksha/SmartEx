@@ -33,25 +33,27 @@ public class LoginController {
 
         return "login";
     }
-    
-    @RequestMapping(value="/dashboard", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/dashboard", method = RequestMethod.POST)
     public String login2(HttpSession session, @RequestParam("email") String email,
             @RequestParam("password") String password) {
 
         LoginDto loginDto = new LoginDto();
         loginDto.setEmail(email);
         loginDto.setPassword(password);
-        
-        loginDto = loginService.login(loginDto);
-        if (loginDto.getProductID()!=null) {
-            session.setAttribute("productID", loginDto.getProductID());
-            return "dashboard";
 
-        } else {
-            return "login";
+        loginDto = loginService.login(loginDto);
+        if (loginDto.getProductID() != null) {
+            
+            if (password.matches(loginDto.getPassword())) {
+                session.setAttribute("productID", loginDto.getProductID());
+                return "dashboard";
+            }
         }
+        return "login";
+
     }
-    
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request) {
 

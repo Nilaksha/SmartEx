@@ -21,9 +21,14 @@ public class SessionValidator extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        
+
         HttpSession session = request.getSession();
-        
+        String uri = request.getRequestURI();
+
+        if (uri.endsWith(".css") || uri.endsWith(".js")) {
+            return true;
+        }
+
         if (!(((HandlerMethod) handler).getBean() instanceof LoginController)) {
             if (session == null || session.getAttribute("productID") == null) {
                 throw new Exception("Invalid session please login");
