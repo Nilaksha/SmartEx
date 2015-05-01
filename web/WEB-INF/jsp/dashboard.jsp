@@ -23,6 +23,7 @@
 
         <!-- Custom CSS -->
         <link href="css/sb-admin.css" rel="stylesheet">
+        <link href="css/task.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
         <link href="css/plugins/morris.css" rel="stylesheet">
@@ -276,7 +277,7 @@
                                             <i class="fa fa-refresh fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div id="newMoodUpdatesCount" class="huge"></div>
+                                            <div id="newMoodUpdatesCount1" class="huge"></div>
                                             <div>Mood Updates</div>
                                         </div>
                                     </div>
@@ -330,7 +331,7 @@
                                     <div class="list-group">
                                         <a href="#" class="list-group-item">
                                             <span id="lastAddedTaskTime" class="badge"></span>
-                                            <i id="lastAddedTaskCount" class="fa fa-fw fa-calendar"></i> Tasks added 
+                                            <i id="lastAddedTaskCount" class="task fa fa-fw fa-calendar"></i> 
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span id="lastRepliedTime" class="badge"></span>
@@ -338,7 +339,7 @@
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge">23 minutes ago</span>
-                                            <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                            <i id="newMoodUpdatesCount2" class="fa fa-fw fa-truck"></i> New mood updates
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge">46 minutes ago</span>

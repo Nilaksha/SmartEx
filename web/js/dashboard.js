@@ -69,7 +69,8 @@ function newMoodUpdatesCount() {
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            $("#newMoodUpdatesCount").text(response);
+            $("#newMoodUpdatesCount1").text(response);
+            $("#newMoodUpdatesCount2").text(response);
         },
         error: function (e) {
         }
@@ -97,7 +98,8 @@ function lastAddedTaskTime() {
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            $("#lastAddedTaskTime").text(response);
+            var data = response.toString() + " days ago";
+            $("#lastAddedTaskTime").text(data);
         },
         error: function (e) {
         }
@@ -111,7 +113,8 @@ function lastRepliedTime() {
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            $("#lastRepliedTime").text(response);
+            var data = response + " days ago";
+            $("#lastRepliedTime").text(data);
         },
         error: function (e) {
         }

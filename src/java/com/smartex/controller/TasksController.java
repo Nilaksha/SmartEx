@@ -50,7 +50,7 @@ public class TasksController {
         
         int count = taskService.lastAddedTaskCount(productID);  
 
-        return Integer.toString(count);
+        return " "+ Integer.toString(count)+ " Tasks added";
     }
     
     @RequestMapping(value = "/lastAddedTaskTime", method = RequestMethod.POST)
@@ -59,10 +59,10 @@ public class TasksController {
         
         int count = taskService.lastAddedTaskTime(productID);  
 
-        String suffix = "days ago";
-        if(count==1){
-            suffix="day ago";
-        }
-        return Integer.toString(count)+suffix;
+//        String suffix = " days ago";
+//        if(count==1){
+//            suffix=" day ago";
+//        }
+        return Integer.toString(count);
     }
 }
