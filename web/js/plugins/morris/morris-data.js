@@ -71,7 +71,7 @@ $(function() {
             label: "Happy",
             value: 12
         }, {
-            label: "Good",
+            label: "Busy",
             value: 30
         }, {
             label: "Sad",
