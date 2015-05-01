@@ -6,6 +6,7 @@
 package com.smartex.controller;
 
 import com.smartex.service.MoodService;
+import domain.Mood;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,12 @@ public class MoodsController {
         int count = moodService.newMoodUpdatesCount(productID);  
 
         return Integer.toString(count);
+    }
+    
+    @RequestMapping(value = "/testJson", method = RequestMethod.POST)
+    @ResponseBody
+    public Mood testJson() {
+        
+        return new Mood(1, "01/05/2015", "4.02PM", "Happy");
     }
 }

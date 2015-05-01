@@ -14,11 +14,28 @@ $(document).ready(function () {
     lastAddedTaskCount();
     lastAddedTaskTime();
     lastRepliedTime();
+    testJson();
 });
 
 $(document).on('click', '#searchBtn', function () {
     search();
 });
+
+function testJson() {
+
+    $.ajax({
+        url: "/SmartEx/moods/testJson",
+        type: "POST",
+        success: function (response) {
+            //$("#newMessageCount").text(response);
+            var student = response;
+            var id = student.productID;
+            var date = student.date;
+        },
+        error: function (e) {
+        }
+    });
+}
 
 function newMessageCount() {
 

@@ -32,7 +32,7 @@ public class LoginDaoImpl extends BaseJdbcDao implements LoginDao {
         queryData.append("SELECT u.product_id, \n");
         queryData.append("u.email, \n");
         queryData.append("u.password \n");
-        queryData.append("FROM users u \n");
+        queryData.append("FROM user u \n");
         queryData.append("WHERE u.email = ? \n");
 
         RowMapper<LoginDto> mapper = new RowMapper<LoginDto>() {
