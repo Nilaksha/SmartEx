@@ -25,7 +25,7 @@ public class SessionValidator extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
         String uri = request.getRequestURI();
 
-        if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".woff?v=4.2.0")) {
+        if (uri.endsWith(".css") || uri.endsWith(".js") || uri.contains("font")) {
             return true;
         }
 

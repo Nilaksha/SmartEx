@@ -339,7 +339,7 @@
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge">23 minutes ago</span>
-                                            <i id="newMoodUpdatesCount2" class="fa fa-fw fa-truck"></i> New mood updates
+                                            <i id="newMoodUpdatesCount2" class="fa fa-fw fa-truck"></i>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge">46 minutes ago</span>
