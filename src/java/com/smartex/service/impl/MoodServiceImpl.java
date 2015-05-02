@@ -6,14 +6,19 @@
 package com.smartex.service.impl;
 
 import com.smartex.dao.MoodDao;
+import com.smartex.dto.MoodDto;
 import com.smartex.service.MoodService;
+import domain.Mood;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
  *
- * @author user
+ * @author Nilaksha
  */
 @Service("moodService")
 public class MoodServiceImpl implements MoodService {
@@ -22,9 +27,31 @@ public class MoodServiceImpl implements MoodService {
     @Qualifier("moodDao")
     private MoodDao moodDao;
     
+    SimpleDateFormat formatDate = new SimpleDateFormat("dd MMMMM yyyy");
+    SimpleDateFormat formatTime = new SimpleDateFormat("h:mm a");
+    
     @Override
     public int newMoodUpdatesCount(String productID) {
         return moodDao.newMoodUpdatesCount(productID);
+    }
+
+    @Override
+    public List<Mood> updateMoods(String productID) {
+        
+        List<MoodDto> moodDtos = moodDao.updateMoods(productID);
+        List<Mood> moods = new ArrayList<>();
+        
+        for(MoodDto moodDto : moodDtos){
+            
+            Mood mood = new Mood();
+            
+            mood.setDate(formatDate.format(moodDto.getDate()));
+            mood.setTime(formatTime.format(moodDto.getDate()));
+            mood.setMood(moodDto.getMood());
+            
+            moods.add(mood);
+        }
+        return moods;
     }
     
 }

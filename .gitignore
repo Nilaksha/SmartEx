@@ -3,3 +3,4 @@ nbproject/*
 lib/*
 nbbuild.xml
 build.xml
+/dist/

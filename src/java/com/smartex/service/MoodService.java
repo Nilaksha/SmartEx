@@ -5,6 +5,9 @@
  */
 package com.smartex.service;
 
+import domain.Mood;
+import java.util.List;
+
 /**
  *
  * @author user
@@ -12,4 +15,6 @@ package com.smartex.service;
 public interface MoodService {
     
      public int newMoodUpdatesCount(String productID);
+     
+     public List<Mood> updateMoods(String productID);
 }

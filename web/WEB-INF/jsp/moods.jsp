@@ -108,6 +108,8 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
+        
+        <script src="js/moods.js"></script>
 
     </body>
 
