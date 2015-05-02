@@ -42,7 +42,7 @@ public class MoodsController {
         
         int count = moodService.newMoodUpdatesCount(productID);  
 
-        return Integer.toString(count);
+        return  Integer.toString(count);
     }
     
     @RequestMapping(value = "/testJson", method = RequestMethod.POST)

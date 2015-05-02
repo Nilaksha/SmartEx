@@ -1,7 +1,6 @@
 $(function() {
 
-    $('#side-menu').metisMenu();
-    
+    $('#side-menu').metisMenu(); 
 });
 
 //Loads the correct sidebar on window load,
@@ -34,3 +33,8 @@ $(function() {
         element.addClass('active');
     }
 });
+
+function register() {
+    
+    window.location.assign('/SmartEx/register');
+}

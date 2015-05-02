@@ -14,7 +14,9 @@ $(document).ready(function () {
     lastAddedTaskCount();
     lastAddedTaskTime();
     lastRepliedTime();
+    userName();
     testJson();
+
 });
 
 $(document).on('click', '#searchBtn', function () {
@@ -132,6 +134,20 @@ function lastRepliedTime() {
         success: function (response) {
             var data = response + " days ago";
             $("#lastRepliedTime").text(data);
+        },
+        error: function (e) {
+        }
+    });
+}
+
+function userName() {
+
+    $.ajax({
+        url: "/SmartEx/dashboard/userName",
+        data: "productID=" + $("#productID").text(),
+        type: "POST",
+        success: function (response) {
+            $("#userName").text(response);
         },
         error: function (e) {
         }
