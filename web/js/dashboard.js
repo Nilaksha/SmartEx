@@ -147,7 +147,8 @@ function userName() {
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            $("#userName").text(response);
+            //$("#userName").text(response); is replaced by $("#userName").after(response);
+            $("#userName").after(response);
         },
         error: function (e) {
         }
