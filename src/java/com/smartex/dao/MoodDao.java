@@ -5,6 +5,9 @@
  */
 package com.smartex.dao;
 
+import com.smartex.dto.MoodDto;
+import java.util.List;
+
 /**
  *
  * @author user
@@ -12,4 +15,6 @@ package com.smartex.dao;
 public interface MoodDao {
     
     public int newMoodUpdatesCount(String productID);
+    
+    public List<MoodDto> updateMoods(String productID);
 }

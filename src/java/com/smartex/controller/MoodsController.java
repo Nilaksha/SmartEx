@@ -7,8 +7,8 @@ package com.smartex.controller;
 
 import com.smartex.service.MoodService;
 import domain.Mood;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -45,10 +45,13 @@ public class MoodsController {
         return Integer.toString(count);
     }
     
-    @RequestMapping(value = "/testJson", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public Mood testJson() {
+    public List<Mood> update(@RequestParam("productID") String productID) {
         
-        return new Mood(1, "01/05/2015", "4.02PM", "Happy");
+        List<Mood> moods = new ArrayList<>();
+        moods = moodService.updateMoods(productID);
+        
+        return moods;
     }
 }
