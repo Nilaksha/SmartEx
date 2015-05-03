@@ -103,7 +103,7 @@ function lastAddedTaskCount() {
         data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            $("#lastAddedTaskCount").text(response);
+            $("#lastAddedTaskCount").after(response);
         },
         error: function (e) {
         }

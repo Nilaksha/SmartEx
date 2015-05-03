@@ -46,22 +46,22 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="charts.jsp"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                            <a href="charts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                         </li>
                         <li>
-                            <a href="tables.jsp"><i class="fa fa-fw fa-table"></i> Tables</a>
+                            <a href="tables"><i class="fa fa-fw fa-table"></i> Tables</a>
                         </li>
                         <li>
-                            <a href="moods.jsp"><i class="fa fa-fw fa-child"></i> Moods</a>
+                            <a href="moods"><i class="fa fa-fw fa-child"></i> Moods</a>
                         </li>
                         <li class="active">
-                            <a href="inbox.jsp"><i class="fa fa-fw fa-envelope"></i> Messages</a>
+                            <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Messages</a>
                         </li>
                         <li>
-                            <a href="tasks.jsp"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
+                            <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                         </li>
                     </ul>
                 </div>

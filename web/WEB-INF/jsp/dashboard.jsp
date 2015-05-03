@@ -23,7 +23,6 @@
 
         <!-- Custom CSS -->
         <link href="css/sb-admin.css" rel="stylesheet">
-        <link href="css/task.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
         <link href="css/plugins/morris.css" rel="stylesheet">
@@ -139,7 +138,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i id="userName" class="task fa fa-user"></i><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i id="userName" class="fa fa-user"></i><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="profile"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -260,7 +259,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="charts">
+                                <a href="tables">
                                     <div class="panel-footer">
                                         <span class="pull-left">View Activities</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -274,7 +273,7 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <i class="fa fa-refresh fa-5x"></i>
+                                            <i class="fa fa-child fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div id="newMoodUpdatesCount1" class="huge"></div>
@@ -302,6 +301,9 @@
                                 </div>
                                 <div class="panel-body">
                                     <div id="morris-area-chart"></div>
+                                    <div class="text-right">
+                                        <a href="charts">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -314,7 +316,7 @@
                                         <div class="panel-body">
                                             <div id="morris-donut-chart"></div>
                                             <div class="text-right">
-                                                <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="moods">View Details <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +333,7 @@
                                     <div class="list-group">
                                         <a href="#" class="list-group-item">
                                             <span id="lastAddedTaskTime" class="badge"></span>
-                                            <i id="lastAddedTaskCount" class="task fa fa-fw fa-task"></i> 
+                                            <i id="lastAddedTaskCount" class="fa fa-fw fa-tasks"></i> 
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span id="lastRepliedTime" class="badge"></span>
@@ -339,15 +341,15 @@
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span id="newMoodUpdatesCount2" class="badge"></span>
-                                            <i  class="task fa fa-fw fa-child"></i> New mood updates
+                                            <i  class="fa fa-fw fa-child"></i> New mood updates
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge"></span>
-                                            <i  class="task fa fa-fw fa-slackd"></i> New applications
+                                            <i  class="fa fa-fw fa-download"></i> New applications
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <span class="badge"></span>
-                                            <i  class="task fa fa-fw glyphicon-hand-right"></i> Suggestions
+                                            <i  class="fa fa-fw fa-spinner"></i> Suggestions
                                         </a>
                                     </div>
                                     <div class="text-right">
