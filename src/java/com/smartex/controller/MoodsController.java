@@ -5,6 +5,7 @@
  */
 package com.smartex.controller;
 
+import com.smartex.dto.MoodsDto;
 import com.smartex.service.MoodService;
 import domain.Mood;
 import java.util.ArrayList;
@@ -51,6 +52,16 @@ public class MoodsController {
         
         List<Mood> moods = new ArrayList<>();
         moods = moodService.updateMoods(productID);
+        
+        return moods;
+    }
+    
+    @RequestMapping(value = "/updateDonut", method = RequestMethod.POST)
+    @ResponseBody
+    public List<MoodsDto> updateDonut(@RequestParam("productID") String productID) {
+        
+        List<MoodsDto> moods = new ArrayList<>();
+        moods = moodService.updateMoodDonut(productID);
         
         return moods;
     }

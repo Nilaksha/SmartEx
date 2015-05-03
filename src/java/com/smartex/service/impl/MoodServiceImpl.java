@@ -7,6 +7,7 @@ package com.smartex.service.impl;
 
 import com.smartex.dao.MoodDao;
 import com.smartex.dto.MoodDto;
+import com.smartex.dto.MoodsDto;
 import com.smartex.service.MoodService;
 import domain.Mood;
 import java.text.SimpleDateFormat;
@@ -52,6 +53,12 @@ public class MoodServiceImpl implements MoodService {
             moods.add(mood);
         }
         return moods;
+    }
+
+    @Override
+    public List<MoodsDto> updateMoodDonut(String productID) {
+        
+        return moodDao.updateMoodDonut(productID);
     }
     
 }
