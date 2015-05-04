@@ -36,8 +36,8 @@ function updateTableAppUsage() {
                         '                   <td>' + response[i].application + '</td>' +
                         '                   <td>' + response[i].date + '</td>' +
                         '                   <td class="center">' + response[i].time + '</td>' +
-                        '                   <td class="center">' + response[i].duration + ' mins</td>' +
-                        '</tr>'
+                        '                   <td class="center">' + response[i].duration + '</td>' +
+                        '</tr>';
                 count++;
             }
 
