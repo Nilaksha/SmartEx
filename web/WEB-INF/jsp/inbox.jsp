@@ -117,8 +117,22 @@
 
                                     </div>
                                 </div>
+
+
                                 <div class="col-lg-offset-2">
                                     <button id="composeButton" type="button" class="checkbox btn btn-primary">Compose</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-bell fa-fw"></i> New Message</h3>
+                                </div>
+                                <div class="panel-body">
                                 </div>
                             </div>
                         </div>
