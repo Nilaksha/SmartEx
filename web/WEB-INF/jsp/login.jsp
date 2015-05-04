@@ -18,6 +18,8 @@
         <meta name="author" content="">
 
         <title>Child Monitor</title>
+        
+<!--        <link href="smartex.png" rel="icon" type="image/png"/>-->
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
