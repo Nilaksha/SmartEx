@@ -8,7 +8,7 @@ package com.smartex.dao.impl;
 import com.smartex.dao.BaseJdbcDao;
 import com.smartex.dao.MoodDao;
 import com.smartex.dto.MoodDto;
-import com.smartex.dto.MoodsDto;
+import com.smartex.dto.MoodsDonutDto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -72,7 +72,7 @@ public class MoodDaoImpl extends BaseJdbcDao implements MoodDao {
     }
 
     @Override
-    public List<MoodsDto> updateMoodDonut(String productID) {
+    public List<MoodsDonutDto> updateMoodDonut(String productID) {
 
         Object[] objects = new Object[2];
 
@@ -89,10 +89,10 @@ public class MoodDaoImpl extends BaseJdbcDao implements MoodDao {
         objects[0] = productID;
         objects[1] = "NEW";
         
-        RowMapper<MoodsDto> mapper = new RowMapper<MoodsDto>() {
-            public MoodsDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+        RowMapper<MoodsDonutDto> mapper = new RowMapper<MoodsDonutDto>() {
+            public MoodsDonutDto mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-                MoodsDto moodsDto = new MoodsDto();
+                MoodsDonutDto moodsDto = new MoodsDonutDto();
                 moodsDto.setLabel(rs.getString("moodType"));
                 moodsDto.setValue(rs.getInt("count"));
 
@@ -100,7 +100,7 @@ public class MoodDaoImpl extends BaseJdbcDao implements MoodDao {
             }
         };
 
-        List<MoodsDto> resultsList;
+        List<MoodsDonutDto> resultsList;
         resultsList = getJdbcTemplate().query(queryData.toString(), objects, mapper);
         return resultsList;
     }

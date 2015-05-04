@@ -6,7 +6,9 @@
 package com.smartex.service.impl;
 
 import com.smartex.dao.ChartDao;
+import com.smartex.dto.MoodsLineDto;
 import com.smartex.service.ChartService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,11 @@ public class ChartServiceImpl implements ChartService {
     public int recentActivityCount(String productID) {
         
         return chartDao.recentActivityCount(productID);
+    }
+
+    @Override
+    public List<MoodsLineDto> updateMoodLine(String productID) {
+        return chartDao.updateMoodLine(productID);
     }
     
 }

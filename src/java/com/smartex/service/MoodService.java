@@ -5,7 +5,7 @@
  */
 package com.smartex.service;
 
-import com.smartex.dto.MoodsDto;
+import com.smartex.dto.MoodsDonutDto;
 import domain.Mood;
 import java.util.List;
 
@@ -19,5 +19,5 @@ public interface MoodService {
      
      public List<Mood> updateMoods(String productID);
      
-     public List<MoodsDto> updateMoodDonut(String productID);
+     public List<MoodsDonutDto> updateMoodDonut(String productID);
 }

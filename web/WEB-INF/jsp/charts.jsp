@@ -214,7 +214,7 @@
                         <div class="col-lg-4">
                             <div class="panel panel-yellow">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Donut Chart Example</h3>
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Mood Chart</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div id="morris-donut-chart"></div>
@@ -227,7 +227,7 @@
                         <div class="col-lg-4">
                             <div class="panel panel-red">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Line Graph Example with Tooltips</h3>
+                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Application Usage Graph</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div id="morris-line-chart"></div>

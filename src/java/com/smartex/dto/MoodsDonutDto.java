@@ -9,15 +9,15 @@ package com.smartex.dto;
  *
  * @author Nilaksha
  */
-public class MoodsDto {
+public class MoodsDonutDto {
     
     private String label;
     private Integer value;
 
-    public MoodsDto() {
+    public MoodsDonutDto() {
     }
 
-    public MoodsDto(String moodType, Integer count) {
+    public MoodsDonutDto(String moodType, Integer count) {
         this.label = moodType;
         this.value = count;
     }

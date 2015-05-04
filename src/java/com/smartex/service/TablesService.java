@@ -5,16 +5,14 @@
  */
 package com.smartex.service;
 
-import com.smartex.dto.MoodsLineDto;
+import com.smartex.dto.TableAppUsageDto;
 import java.util.List;
 
 /**
  *
- * @author user
+ * @author Nilaksha
  */
-public interface ChartService {
+public interface TablesService {
     
-    public int recentActivityCount(String productID);
-    
-    public List<MoodsLineDto> updateMoodLine(String productID);
+    public List<TableAppUsageDto> updateTableAppUssage(String productID);    
 }

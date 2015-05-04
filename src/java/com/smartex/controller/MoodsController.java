@@ -5,7 +5,7 @@
  */
 package com.smartex.controller;
 
-import com.smartex.dto.MoodsDto;
+import com.smartex.dto.MoodsDonutDto;
 import com.smartex.service.MoodService;
 import domain.Mood;
 import java.util.ArrayList;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -61,10 +60,10 @@ public class MoodsController {
     
     @RequestMapping(value = "/updateDonut", method = RequestMethod.POST)
     @ResponseBody
-    public List<MoodsDto> updateDonut(HttpSession session) {
+    public List<MoodsDonutDto> updateDonut(HttpSession session) {
         
         String productID = session.getAttribute("productID").toString();
-        List<MoodsDto> moods;
+        List<MoodsDonutDto> moods;
         moods = moodService.updateMoodDonut(productID);
         
         return moods;

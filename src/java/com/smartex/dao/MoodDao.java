@@ -6,7 +6,7 @@
 package com.smartex.dao;
 
 import com.smartex.dto.MoodDto;
-import com.smartex.dto.MoodsDto;
+import com.smartex.dto.MoodsDonutDto;
 import java.util.List;
 
 /**
@@ -19,5 +19,5 @@ public interface MoodDao {
     
     public List<MoodDto> updateMoods(String productID);
     
-    public List<MoodsDto> updateMoodDonut(String productID);
+    public List<MoodsDonutDto> updateMoodDonut(String productID);
 }
