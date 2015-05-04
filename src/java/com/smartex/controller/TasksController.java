@@ -6,8 +6,7 @@
 package com.smartex.controller;
 
 import com.smartex.service.TaskService;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -37,8 +36,9 @@ public class TasksController {
     
     @RequestMapping(value = "/recentTaskCount", method = RequestMethod.POST)
     @ResponseBody
-    public String recentMessageCount(@RequestParam("productID") String productID) {
+    public String recentMessageCount(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = taskService.recentTaskCount(productID);  
 
         return Integer.toString(count);
@@ -46,8 +46,9 @@ public class TasksController {
     
     @RequestMapping(value = "/lastAddedTaskCount", method = RequestMethod.POST)
     @ResponseBody
-    public String lastAddedTaskCount(@RequestParam("productID") String productID) {
+    public String lastAddedTaskCount(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = taskService.lastAddedTaskCount(productID);  
 
         return " "+ Integer.toString(count)+ " Tasks added";
@@ -55,14 +56,11 @@ public class TasksController {
     
     @RequestMapping(value = "/lastAddedTaskTime", method = RequestMethod.POST)
     @ResponseBody
-    public String lastAddedTaskTime(@RequestParam("productID") String productID) {
+    public String lastAddedTaskTime(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = taskService.lastAddedTaskTime(productID);  
 
-//        String suffix = " days ago";
-//        if(count==1){
-//            suffix=" day ago";
-//        }
         return Integer.toString(count);
     }
 }

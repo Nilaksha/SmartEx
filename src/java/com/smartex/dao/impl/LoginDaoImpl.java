@@ -8,9 +8,12 @@ package com.smartex.dao.impl;
 import com.smartex.dao.BaseJdbcDao;
 import com.smartex.dao.LoginDao;
 import com.smartex.dto.LoginDto;
+import com.smartex.dto.ProfileDto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -51,5 +54,53 @@ public class LoginDaoImpl extends BaseJdbcDao implements LoginDao {
         List<LoginDto> loginDto;
         loginDto = getJdbcTemplate().query(queryData.toString(), objects, mapper);
         return loginDto;
+    }
+
+    @Override
+    public boolean isProductID(String productID) {
+
+        Object[] objects = new Object[1];
+        boolean result;
+
+        objects[0] = Integer.parseInt(productID);
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("SELECT u.product_id \n");
+        queryData.append("FROM user u \n");
+        queryData.append("WHERE u.product_id = ? \n");
+
+        try {
+            int actualProductID = getJdbcTemplate().queryForObject(
+                    queryData.toString(), objects, Integer.class);
+
+            result = (actualProductID != 0);
+            return result;
+
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean saveProfile(ProfileDto profileDto) {
+
+        Object[] objects = new Object[4];
+
+        objects[0] = profileDto.getProductID();
+        objects[1] = profileDto.getUserName();
+        objects[2] = profileDto.getEmail();
+        objects[3] = profileDto.getPassword();
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("INSERT INTO user \n");
+        queryData.append("(PRODUCT_ID, USER_NAME, EMAIL, PASSWORD) \n");
+        queryData.append("VALUES (?, ?, ?, ?) \n");
+
+        try {
+            getJdbcTemplate().update(queryData.toString(), objects);
+            return true;
+        } catch (DataAccessException e) {
+            return false;
+        }
     }
 }

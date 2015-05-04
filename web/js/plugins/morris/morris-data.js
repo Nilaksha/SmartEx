@@ -5,10 +5,8 @@ $(function () {
 
     $.ajax({
         url: "/SmartEx/moods/updateDonut",
-        data: "productID=1",
         type: "POST",
         success: function (response) {
-            //$("#newMessageCount").text(response);
             moods = response;
             update();
         },

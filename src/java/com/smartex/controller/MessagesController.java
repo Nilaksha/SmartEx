@@ -6,8 +6,7 @@
 package com.smartex.controller;
 
 import com.smartex.service.MessageService;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -55,8 +54,9 @@ public class MessagesController {
 
     @RequestMapping(value = "/newMessageCount", method = RequestMethod.POST)
     @ResponseBody
-    public String newMessageCount(@RequestParam("productID") String productID) {
+    public String newMessageCount(HttpSession session) {
 
+        String productID = session.getAttribute("productID").toString();
         int count = messageService.newMessageCount(productID);  
 
         return Integer.toString(count);
@@ -64,8 +64,9 @@ public class MessagesController {
     
     @RequestMapping(value = "/lastRepliedTime", method = RequestMethod.POST)
     @ResponseBody
-    public String lastRepliedTime(@RequestParam("productID") String productID) {
+    public String lastRepliedTime(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = messageService.lastRepliedTime(productID);  
 
         return Integer.toString(count);

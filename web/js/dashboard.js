@@ -15,35 +15,13 @@ $(document).ready(function () {
     lastAddedTaskTime();
     lastRepliedTime();
     userName();
-    testJson();
 
 });
-
-$(document).on('click', '#searchBtn', function () {
-    search();
-});
-
-function testJson() {
-
-    $.ajax({
-        url: "/SmartEx/moods/testJson",
-        type: "POST",
-        success: function (response) {
-            //$("#newMessageCount").text(response);
-            var student = response;
-            var id = student.productID;
-            var date = student.date;
-        },
-        error: function (e) {
-        }
-    });
-}
 
 function newMessageCount() {
 
     $.ajax({
         url: "/SmartEx/messages/newMessageCount",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             $("#newMessageCount").text(response);
@@ -57,7 +35,6 @@ function recentTaskCount() {
 
     $.ajax({
         url: "/SmartEx/tasks/recentTaskCount",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             $("#recentTaskCount").text(response);
@@ -71,7 +48,6 @@ function recentActivityCount() {
 
     $.ajax({
         url: "/SmartEx/charts/recentActivityCount",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             $("#recentActivityCount").text(response);
@@ -85,7 +61,6 @@ function newMoodUpdatesCount() {
 
     $.ajax({
         url: "/SmartEx/moods/newMoodUpdatesCount",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             $("#newMoodUpdatesCount1").text(response);
@@ -100,7 +75,6 @@ function lastAddedTaskCount() {
 
     $.ajax({
         url: "/SmartEx/tasks/lastAddedTaskCount",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             $("#lastAddedTaskCount").after(response);
@@ -114,7 +88,6 @@ function lastAddedTaskTime() {
 
     $.ajax({
         url: "/SmartEx/tasks/lastAddedTaskTime",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             var data = response.toString() + " days ago";
@@ -129,7 +102,6 @@ function lastRepliedTime() {
 
     $.ajax({
         url: "/SmartEx/messages/lastRepliedTime",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
             var data = response + " days ago";
@@ -144,10 +116,8 @@ function userName() {
 
     $.ajax({
         url: "/SmartEx/dashboard/userName",
-        data: "productID=" + $("#productID").text(),
         type: "POST",
         success: function (response) {
-            //$("#userName").text(response); is replaced by $("#userName").after(response);
             $("#userName").after(response);
         },
         error: function (e) {

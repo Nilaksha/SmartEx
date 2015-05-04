@@ -6,6 +6,7 @@
 package com.smartex.dao;
 
 import com.smartex.dto.LoginDto;
+import com.smartex.dto.ProfileDto;
 import java.util.List;
 
 /**
@@ -15,4 +16,8 @@ import java.util.List;
 public interface LoginDao {
     
     public List<LoginDto> login(String email);
+    
+    public boolean isProductID(String productID);
+    
+    public boolean saveProfile(ProfileDto profileDto);
 }

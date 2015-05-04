@@ -6,6 +6,7 @@
 package com.smartex.service;
 
 import com.smartex.dto.LoginDto;
+import com.smartex.dto.ProfileDto;
 
 /**
  *
@@ -14,4 +15,6 @@ import com.smartex.dto.LoginDto;
 public interface LoginService {
 
     public LoginDto login(LoginDto loginDto);
+    
+    public ProfileDto register(ProfileDto profileDto);
 }

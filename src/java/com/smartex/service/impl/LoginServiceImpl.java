@@ -7,6 +7,7 @@ package com.smartex.service.impl;
 
 import com.smartex.dao.LoginDao;
 import com.smartex.dto.LoginDto;
+import com.smartex.dto.ProfileDto;
 import com.smartex.service.LoginService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,28 @@ public class LoginServiceImpl implements LoginService {
 
         List<LoginDto> results = loginDao.login(loginDto.getEmail());
         LoginDto succesLoginDto = new LoginDto();
-        
+
         if (!results.isEmpty()) {
-            
+
             succesLoginDto = results.get(0);
-        } 
+        }
         return succesLoginDto;
+    }
+
+    @Override
+    public ProfileDto register(ProfileDto profileDto) {
+
+        if (loginDao.isProductID(profileDto.getProductID())) {
+            profileDto.setStatus(false);
+            return profileDto;
+        } else {
+            if (loginDao.saveProfile(profileDto)) {
+                profileDto.setStatus(true);
+                return profileDto;
+            } else {
+                profileDto.setStatus(false);
+                return profileDto;
+            }
+        }
     }
 }

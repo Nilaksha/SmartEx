@@ -209,7 +209,6 @@
                                             <i class="fa fa-comments fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div id="productID">1</div>
                                             <div id="newMessageCount" class="huge"></div>
                                             <div>Recent Messages</div>
                                         </div>

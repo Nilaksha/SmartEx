@@ -47,40 +47,38 @@
                     <div class="login-panel  panel-default">
 
                         <div class="panel panel-green">
-                            <form role="form" method="post" action="dashboard">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Please Sign Up</h3>
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Please Sign Up</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label>User name</label>
+                                    <input id="userName" class="form-control" placeholder="Username">
                                 </div>
-                                <div class="panel-body">
 
-                                    <div class="form-group">
-                                        <label>User name</label>
-                                        <input class="form-control" placeholder="Enter user name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Email Address</label>
-                                        <input class="form-control" placeholder="Enter email address">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input class="form-control" placeholder="abc@example.com" type="password">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input class="form-control" placeholder="Please confirm your password" type="password">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Product ID</label>
-                                        <input class="form-control" placeholder="Please enter the Smart Desk ID" type="password">
-                                    </div>
-
-                                    <button id="login" class="btn btn-lg btn-success btn-block">Save</button>  
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input id="email" class="form-control" placeholder="E-mail" type="email">
                                 </div>
-                            </form>
+
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input id="password" class="form-control" placeholder="Password" type="password">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input id="confirmPassword" class="form-control" placeholder="Confirm password" type="password">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product ID</label>
+                                    <input id="productID" class="form-control" placeholder="SmartDesk ID" type="password">
+                                </div>
+
+                                <button id="save" class="btn btn-lg btn-success btn-block">Save</button>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +95,7 @@
         <script src="js/metisMenu.min.js"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="js/login.js"></script>
+        <script src="js/register.js"></script>
 
     </body>
 

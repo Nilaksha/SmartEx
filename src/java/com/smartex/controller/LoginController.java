@@ -6,6 +6,7 @@
 package com.smartex.controller;
 
 import com.smartex.dto.LoginDto;
+import com.smartex.dto.ProfileDto;
 import com.smartex.service.LoginService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -59,5 +61,29 @@ public class LoginController {
 
         request.getSession().invalidate();
         return "login";
+    }
+    
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(HttpServletRequest request) {
+
+        return "register";
+    }
+    
+    @RequestMapping(value = "/registerSave", method = RequestMethod.POST)
+    @ResponseBody
+    public String registerSave(HttpSession session, 
+                             @RequestParam("userName") String userName,
+                             @RequestParam("email") String email,
+                             @RequestParam("password") String password,
+                             @RequestParam("productID") String productID) {
+
+        ProfileDto profileDto = new ProfileDto(userName, email, password, productID);
+        ProfileDto profile = loginService.register(profileDto);
+        
+        if(profile.isStatus()){
+            session.setAttribute("productID", profileDto.getProductID());
+        }
+        
+        return String.valueOf(profile.isStatus());
     }
 }

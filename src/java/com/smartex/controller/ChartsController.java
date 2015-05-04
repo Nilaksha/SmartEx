@@ -6,8 +6,7 @@
 package com.smartex.controller;
 
 import com.smartex.service.ChartService;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -37,8 +36,9 @@ public class ChartsController {
     
     @RequestMapping(value = "/recentActivityCount", method = RequestMethod.POST)
     @ResponseBody
-    public String newMessageCount(@RequestParam("productID") String productID) {
+    public String newMessageCount(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = chartService.recentActivityCount(productID);  
 
         return Integer.toString(count);

@@ -10,6 +10,7 @@ import com.smartex.service.MoodService;
 import domain.Mood;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,9 @@ public class MoodsController {
     
     @RequestMapping(value = "/newMoodUpdatesCount", method = RequestMethod.POST)
     @ResponseBody
-    public String newMessageCount(@RequestParam("productID") String productID) {
+    public String newMessageCount(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         int count = moodService.newMoodUpdatesCount(productID);  
 
         return  Integer.toString(count);
@@ -48,8 +50,9 @@ public class MoodsController {
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public List<Mood> update(@RequestParam("productID") String productID) {
+    public List<Mood> update(HttpSession session) {
         
+        String productID = session.getAttribute("productID").toString();
         List<Mood> moods = new ArrayList<>();
         moods = moodService.updateMoods(productID);
         
@@ -58,9 +61,10 @@ public class MoodsController {
     
     @RequestMapping(value = "/updateDonut", method = RequestMethod.POST)
     @ResponseBody
-    public List<MoodsDto> updateDonut(@RequestParam("productID") String productID) {
+    public List<MoodsDto> updateDonut(HttpSession session) {
         
-        List<MoodsDto> moods = new ArrayList<>();
+        String productID = session.getAttribute("productID").toString();
+        List<MoodsDto> moods;
         moods = moodService.updateMoodDonut(productID);
         
         return moods;
