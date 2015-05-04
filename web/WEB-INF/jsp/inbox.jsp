@@ -89,30 +89,44 @@
                         </div>
                     </div>
 
+
                     <div class="navbar navbar-default">
                         <div class="container">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
 
-                            </div>
-                            <div class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="inbox">Inbox</a></li>
-                                    <li><a href="sent">Sent</a>
-                                    </li>
-                                    <li><a href="draft">Draft</a>
-                                    </li>
-                                    <li><a href="trash">Trash</a>
-                                    </li>
+                                    </div>
 
-                                </ul>
+                                    <div class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav">
+                                            <li class="active"><a href="inbox">Inbox</a></li>
+                                            <li><a href="sent">Sent</a>
+                                            </li>
+                                            <li><a href="draft">Draft</a>
+                                            </li>
+                                            <li><a href="trash">Trash</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-2">
+                                    <button id="composeButton" type="button" class="checkbox btn btn-primary">Compose</button>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div id="emailCompose" class="form-group">
+                        <label>Text area</label>
+                        <textarea class="form-control" rows="3"></textarea>
                     </div>
 
                     <div class="row">
@@ -162,7 +176,7 @@
         <script src="js/bootstrap.min.js"></script>
 
         <script src="js/messages.js"></script>
-        
+
     </body>
 
 </html>
