@@ -1,7 +1,7 @@
 <%-- 
-    Document   : sent
-    Created on : Apr 1, 2015, 6:53:15 AM
-    Author     : Nilaksha
+    Document   : messages
+    Created on : May 4, 2015, 5:02:51 PM
+    Author     : user
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -106,12 +106,12 @@
 
                                     <div class="navbar-collapse collapse">
                                         <ul class="nav navbar-nav">
-                                            <li class="active"><a id="inbox" href="inbox">Inbox</a></li>
-                                            <li><a id="sent" href="sent">Sent</a>
+                                            <li class="active"><a id="inbox" href="javascript:inbox()">Inbox</a></li>
+                                            <li><a id="sent" href="javascript:sent()">Sent</a>
                                             </li>
-                                            <li><a id="draft" href="draft">Draft</a>
+                                            <li><a id="draft" href="javascript:draft()">Draft</a>
                                             </li>
-                                            <li><a id="trash" href="trash">Trash</a>
+                                            <li><a id="trash" href="javascript:trash()">Trash</a>
                                             </li>
                                         </ul>
 
@@ -153,6 +153,11 @@
                     </div>
                 </div>
 
+                <div id="inbox"></div>
+                <div id="sent"></div>
+                <div id="draft"></div>
+                <div id="trash"></div>
+                
                 <div class="row">
                     <div class="col-lg-12">
 

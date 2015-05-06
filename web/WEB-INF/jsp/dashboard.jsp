@@ -18,6 +18,7 @@
 
         <title>Smart Friend</title>
 
+        <link rel="icon" type="image/png" href="css/favicon-32x32.png" sizes="32x32" />
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
