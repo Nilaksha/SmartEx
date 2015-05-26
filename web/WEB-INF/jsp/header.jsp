@@ -104,7 +104,7 @@
                 <a href="profile"><i class="fa fa-fw fa-user"></i> Profile</a>
             </li>
             <li>
-                <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                <a href="messages"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
             </li>
             <li>
                 <a href="settings"><i class="fa fa-fw fa-gear"></i> Settings</a>

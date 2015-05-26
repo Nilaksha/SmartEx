@@ -6,7 +6,7 @@
 package com.smartex.service;
 
 import com.smartex.dto.MoodsDonutDto;
-import domain.Mood;
+import com.smartex.domain.Mood;
 import java.util.List;
 
 /**

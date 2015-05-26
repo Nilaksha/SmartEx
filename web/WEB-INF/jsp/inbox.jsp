@@ -106,7 +106,8 @@
 
                                     <div class="navbar-collapse collapse">
                                         <ul class="nav navbar-nav">
-                                            <li class="active"><a id="inbox" href="inbox">Inbox</a></li>
+                                            <li class="active"><a id="inbox" href="inbox">Inbox</a>
+                                            </li>
                                             <li><a id="sent" href="sent">Sent</a>
                                             </li>
                                             <li><a id="draft" href="draft">Draft</a>

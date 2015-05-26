@@ -24,7 +24,7 @@
         <link href="css/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,7 +58,7 @@
                             <a href="moods"><i class="fa fa-fw fa-child"></i> Moods</a>
                         </li>
                         <li class="active">
-                            <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Messages</a>
+                            <a href="messages"><i class="fa fa-fw fa-envelope"></i> Messages</a>
                         </li>
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Inbox
+                                Messages
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -106,13 +106,9 @@
 
                                     <div class="navbar-collapse collapse">
                                         <ul class="nav navbar-nav">
-                                            <li class="active"><a id="inbox" href="javascript:inbox()">Inbox</a></li>
-                                            <li><a id="sent" href="javascript:sent()">Sent</a>
-                                            </li>
-                                            <li><a id="draft" href="javascript:draft()">Draft</a>
-                                            </li>
-                                            <li><a id="trash" href="javascript:trash()">Trash</a>
-                                            </li>
+                                            <li id="inbox"><a href="javascript:inbox()">Inbox</a></li>
+                                            <li id="sent"><a href="javascript:sent()">Sent</a></li>                                        
+                                            <li id="draft"><a href="javascript:draft()">Draft</a></li>
                                         </ul>
 
                                     </div>
@@ -153,29 +149,41 @@
                     </div>
                 </div>
 
-                <div id="inbox"></div>
-                <div id="sent"></div>
-                <div id="draft"></div>
-                <div id="trash"></div>
-                
-                <div class="row">
+                <div id="inboxPanel" class="row">
                     <div class="col-lg-12">
 
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>
-                                        <th class="col-lg-1">Action</th>
+                                    <tr>                                     
+                                        <th>Message</th>
+                                        <th class="col-lg-2">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sentPanel" class="row">
+                    <div class="col-lg-12">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>                                     
                                         <th>Message</th>
                                         <th class="col-lg-2">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <%
-                                        for (int i = 0; i < 5; i++) {
+                                        for (int i = 0; i < 4; i++) {
                                     %>
                                     <tr>
-                                        <td><input type="checkbox"/></td>
                                         <td>set the message</td>
                                         <td>set the message date</td>
                                     </tr>
@@ -186,26 +194,47 @@
                             </table>
                         </div>
                     </div>
-                </div>
-                <!-- /.row -->
+                </div>               
+                                
+                <div id="draftPanel" class="row">
+                    <div class="col-lg-12">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>                                     
+                                        <th>Message</th>
+                                        <th class="col-lg-2">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        for (int i = 0; i < 3; i++) {
+                                    %>
+                                    <tr>
+                                        <td>set the message</td>
+                                        <td>set the message date</td>
+                                    </tr>
+                                    <%
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
 
             </div>
             <!-- /.container-fluid -->
 
-        </div>
-        <!-- /#page-wrapper -->
+            <!-- jQuery -->
+            <script src="js/jquery.js"></script>
 
-    </div>
-    <!-- /#wrapper -->
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+            <script src="js/messages.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/messages.js"></script>
-
-</body>
+    </body>
 
 </html>

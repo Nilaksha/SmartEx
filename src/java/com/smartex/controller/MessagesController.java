@@ -5,7 +5,10 @@
  */
 package com.smartex.controller;
 
+import com.smartex.domain.Message;
 import com.smartex.service.MessageService;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -27,26 +29,31 @@ public class MessagesController {
     @Autowired
     @Qualifier("messageService")
     private MessageService messageService;
-    
-    @RequestMapping(value = "/inbox", method = RequestMethod.GET)
-    public String inbox(ModelMap model) {
 
-        return "inbox";
-    }
-    
-    @RequestMapping(value = "/sent", method = RequestMethod.GET)
-    public String sent(ModelMap model) {
+    @RequestMapping(method = RequestMethod.GET)
+    public String messages(ModelMap model) {
 
-        return "sent";
+        return "messages";
     }
-    
-    @RequestMapping(value = "/draft", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/inbox", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Message> getInboxMessages(HttpSession session) {
+        
+        String productID = session.getAttribute("productID").toString();
+        List<Message> messages = new ArrayList<>();
+        messages = messageService.getInboxMessages(productID);
+
+        return messages;
+    }
+
+    @RequestMapping(value = "/sent", method = RequestMethod.POST)
     public String draft(ModelMap model) {
 
         return "draft";
     }
-    
-    @RequestMapping(value = "/trash", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/draft", method = RequestMethod.POST)
     public String trash(ModelMap model) {
 
         return "trash";
@@ -57,17 +64,17 @@ public class MessagesController {
     public String newMessageCount(HttpSession session) {
 
         String productID = session.getAttribute("productID").toString();
-        int count = messageService.newMessageCount(productID);  
+        int count = messageService.newMessageCount(productID);
 
         return Integer.toString(count);
     }
-    
+
     @RequestMapping(value = "/lastRepliedTime", method = RequestMethod.POST)
     @ResponseBody
     public String lastRepliedTime(HttpSession session) {
-        
+
         String productID = session.getAttribute("productID").toString();
-        int count = messageService.lastRepliedTime(productID);  
+        int count = messageService.lastRepliedTime(productID);
 
         return Integer.toString(count);
     }

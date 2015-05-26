@@ -62,7 +62,7 @@
                             <a href="moods"><i class="fa fa-fw fa-child"></i> Moods</a>
                         </li>
                         <li>
-                            <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Messages</a>
+                            <a href="messages"><i class="fa fa-fw fa-envelope"></i> Messages</a>
                         </li>
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>

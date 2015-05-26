@@ -6,7 +6,9 @@
 package com.smartex.service.impl;
 
 import com.smartex.dao.MessageDao;
+import com.smartex.domain.Message;
 import com.smartex.service.MessageService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,12 @@ public class MessageServiceImpl implements MessageService {
     public int lastRepliedTime(String productID) {
         
         return messageDao.lastRepliedTime(productID);
+    }
+
+    @Override
+    public List<Message> getInboxMessages(String productID) {
+        
+        return messageDao.getInboxMessages(productID);
     }
     
 }

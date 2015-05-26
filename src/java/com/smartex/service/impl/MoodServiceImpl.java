@@ -9,7 +9,7 @@ import com.smartex.dao.MoodDao;
 import com.smartex.dto.MoodDto;
 import com.smartex.dto.MoodsDonutDto;
 import com.smartex.service.MoodService;
-import domain.Mood;
+import com.smartex.domain.Mood;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;

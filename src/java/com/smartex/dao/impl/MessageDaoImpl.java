@@ -7,11 +7,16 @@ package com.smartex.dao.impl;
 
 import com.smartex.dao.BaseJdbcDao;
 import com.smartex.dao.MessageDao;
+import com.smartex.domain.Message;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -69,5 +74,34 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
         }
         return 0;
     }
-}
 
+    @Override
+    public List<Message> getInboxMessages(String productID) {
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
+        Object[] objects = new Object[1];
+
+        objects[0] = Integer.parseInt(productID);
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("SELECT * ");
+        queryData.append("FROM messages m ");
+        queryData.append("WHERE m.productID = ? ");
+
+        RowMapper<Message> mapper = new RowMapper<Message>() {
+            public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+                Message message = new Message();
+                message.setSubject(rs.getString("msgSubject"));
+                message.setBody(rs.getString("msgBody"));
+                message.setDate(formatDate.format(rs.getDate("receivedTime")));
+
+                return message;
+            }
+        };
+
+        List<Message> resultsList;
+        resultsList = getJdbcTemplate().query(queryData.toString(), objects, mapper);
+        return resultsList;
+    }
+}

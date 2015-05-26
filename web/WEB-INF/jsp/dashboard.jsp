@@ -65,7 +65,7 @@
                             <a href="moods"><i class="fa fa-fw fa-child"></i> Moods</a>
                         </li>
                         <li>
-                            <a href="messages/inbox"><i class="fa fa-fw fa-envelope"></i> Messages</a>
+                            <a href="messages"><i class="fa fa-fw fa-envelope"></i> Messages</a>
                         </li>
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
@@ -107,7 +107,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="messages/inbox">
+                                <a href="messages">
                                     <div class="panel-footer">
                                         <span class="pull-left">View Messages</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
