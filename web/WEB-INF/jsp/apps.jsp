@@ -1,7 +1,7 @@
 <%-- 
-    Document   : settings
-    Created on : Apr 11, 2015, 12:41:02 PM
-    Author     : user
+    Document   : apps
+    Created on : May 30, 2015, 10:13:09 AM
+    Author     : Nilaksha
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,6 +21,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
+        <link href="css/metisMenu.min.css" rel="stylesheet">
         <link href="css/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
@@ -32,6 +33,7 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
     </head>
 
     <body>
@@ -63,7 +65,7 @@
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
                         </li>
                     </ul>
@@ -79,55 +81,86 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Settings
+                                Apps
+                                <small></small>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-edit"></i> Settings
+                                    <i class="fa fa-th"></i> Apps
                                 </li>
                             </ol>
                         </div>
                     </div>
                     <!-- /.row -->
 
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <form role="form">
-
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Account Settings</h3>
-                                    </div>
-                                    <div class="panel-body">
-
-                                        <div class="form-group">
-                                            <label>Change User Name</label>
-                                            <input class="form-control" placeholder="Enter new user name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Change Password</label>
-                                            <input class="form-control" placeholder="Enter old password">                                           
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="Enter new password">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="Confirm new password">
-                                        </div>
-
-                                        <button type="submit" class="btn btn-lg btn-primary">Save</button>
-                                    </div>    
+                    <!-- /.row -->
+                    <div id="applicationPanel" class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Manage Applications
                                 </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-lg-1">#</th>
+                                                    <th class="col-lg-5">Application</th>
+                                                    <th class="col-lg-5">Type</th>
+                                                    <th class="col-lg-1" align="center">Active</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
                         </div>
                     </div>
-                    <!-- /.row -->
+                    <div id="buttonPanel" class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-10">
+                            </div>
+                            <div class="col-lg-1">
+                                <button id="popButton" class="btn btn-primary" style="display: none;" data-toggle="modal" data-target="#myModal"></button>
+                            </div>                                
+                            <div class="col-lg-1">     
+                                <button id="saveButton" align="right" type="button" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">Success</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Successfully saved.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline btn-success" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -144,6 +177,7 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
 
-    </body>
+        <script src="js/apps.js"></script>
 
+    </body>
 </html>

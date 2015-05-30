@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">Smart Friend Parent</a>
+    <a class="navbar-brand" href="dashboard">Smart Friend Parent</a>
 </div>
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav">
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="message-footer">
-                <a href="inbox">Read All New Messages</a>
+                <a href="messages">Read All New Messages</a>
             </li>
         </ul>
     </li>

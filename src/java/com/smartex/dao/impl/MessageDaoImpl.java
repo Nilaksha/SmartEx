@@ -84,17 +84,23 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
         objects[0] = Integer.parseInt(productID);
 
         StringBuilder queryData = new StringBuilder("");
-        queryData.append("SELECT * ");
-        queryData.append("FROM messages m ");
-        queryData.append("WHERE m.productID = ? ");
+        queryData.append("SELECT m.msgSubject, \n");
+        queryData.append("m.msgBody, \n");
+        queryData.append("m.receivedTime, \n");
+        queryData.append("c.Short_Name \n");        
+        queryData.append("FROM messages m, \n");
+        queryData.append("child c \n");
+        queryData.append("WHERE m.productID = ? \n");
+        queryData.append("AND m.productID = c.Product_ID \n");
 
         RowMapper<Message> mapper = new RowMapper<Message>() {
             public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
 
                 Message message = new Message();
+                message.setName(rs.getString("Short_Name"));
                 message.setSubject(rs.getString("msgSubject"));
                 message.setBody(rs.getString("msgBody"));
-                message.setDate(formatDate.format(rs.getDate("receivedTime")));
+                message.setDate(formatDate.format(rs.getTimestamp("receivedTime")));
 
                 return message;
             }
@@ -103,5 +109,114 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao {
         List<Message> resultsList;
         resultsList = getJdbcTemplate().query(queryData.toString(), objects, mapper);
         return resultsList;
+    }
+
+    @Override
+    public List<Message> getSentMessages(String productID) {
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
+        Object[] objects = new Object[1];
+
+        objects[0] = Integer.parseInt(productID);
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("SELECT m.msgSubject, \n");
+        queryData.append("m.msgBody, \n");
+        queryData.append("m.sentTime, \n");
+        queryData.append("c.Short_Name \n");        
+        queryData.append("FROM sentMessages m, \n");
+        queryData.append("child c \n");
+        queryData.append("WHERE m.productID = ? \n");
+        queryData.append("AND m.productID = c.Product_ID \n");
+
+        RowMapper<Message> mapper = new RowMapper<Message>() {
+            public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+                Message message = new Message();
+                message.setName(rs.getString("Short_Name"));
+                message.setSubject(rs.getString("msgSubject"));
+                message.setBody(rs.getString("msgBody"));
+                message.setDate(formatDate.format(rs.getTimestamp("sentTime")));
+
+                return message;
+            }
+        };
+
+        List<Message> resultsList;
+        resultsList = getJdbcTemplate().query(queryData.toString(), objects, mapper);
+        return resultsList;
+    }
+
+    @Override
+    public List<Message> getDraftMessages(String productID) {
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
+        Object[] objects = new Object[1];
+
+        objects[0] = Integer.parseInt(productID);
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("SELECT m.Message_Subject, \n");
+        queryData.append("m.Message_Body, \n");
+        queryData.append("m.Saved_Time, \n");
+        queryData.append("c.Short_Name \n");        
+        queryData.append("FROM drafts m, \n");
+        queryData.append("child c \n");
+        queryData.append("WHERE m.Product_ID = ? \n");
+        queryData.append("AND m.Product_ID = c.Product_ID \n");
+
+        RowMapper<Message> mapper = new RowMapper<Message>() {
+            public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+                Message message = new Message();
+                message.setName(rs.getString("Short_Name"));
+                message.setSubject(rs.getString("Message_Subject"));
+                message.setBody(rs.getString("Message_Body"));
+                message.setDate(formatDate.format(rs.getTimestamp("Saved_Time")));
+
+                return message;
+            }
+        };
+
+        List<Message> resultsList;
+        resultsList = getJdbcTemplate().query(queryData.toString(), objects, mapper);
+        return resultsList;
+    }
+
+    @Override
+    public void saveMessage(Message message) {
+
+        Object[] objects = new Object[4];
+
+        objects[0] = message.getProductID();
+        objects[1] = new Date();
+        objects[2] = message.getSubject();
+        objects[3] = message.getBody();
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("INSERT INTO sentmessages \n");
+        queryData.append("(productID, sentTime, msgSubject, msgBody) \n");
+        queryData.append("VALUES (?, ?, ?, ?) \n");
+
+        getJdbcTemplate().update(queryData.toString(), objects);
+       
+    }
+
+    @Override
+    public void sendMessage(Message message) {
+
+        Object[] objects = new Object[4];
+
+        objects[0] = message.getProductID();
+        objects[1] = new Date();
+        objects[2] = message.getSubject();
+        objects[3] = message.getBody();
+
+        StringBuilder queryData = new StringBuilder("");
+        queryData.append("INSERT INTO sentmessages \n");
+        queryData.append("(productID, sentTime, msgSubject, msgBody) \n");
+        queryData.append("VALUES (?, ?, ?, ?) \n");
+
+        getJdbcTemplate().update(queryData.toString(), objects);
     }
 }

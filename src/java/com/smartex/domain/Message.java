@@ -11,6 +11,8 @@ package com.smartex.domain;
  */
 public class Message {
     
+    private Integer productID;
+    private String name;
     private String subject;
     private String body;
     private String date;
@@ -18,10 +20,28 @@ public class Message {
     public Message() {
     }
 
-    public Message(String subject, String body, String date) {
+    public Message(Integer productID, String name, String subject, String body, String date) {
+        this.productID = productID;
+        this.name = name;
         this.subject = subject;
         this.body = body;
         this.date = date;
+    }
+
+    public Integer getProductID() {
+        return productID;
+    }
+
+    public void setProductID(Integer productID) {
+        this.productID = productID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSubject() {

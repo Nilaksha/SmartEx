@@ -28,8 +28,11 @@ public class SessionValidator extends HandlerInterceptorAdapter {
         if (uri.endsWith(".css") || uri.endsWith(".js") || uri.contains("font")) {
             return true;
         }
+        //System.out.println("*********"+handler.getClass());
 
+        
         if (!(((HandlerMethod) handler).getBean() instanceof LoginController)) {
+          //  System.out.println("**********");
             if (session == null || session.getAttribute("productID") == null) {
                 throw new Exception("Invalid session please login");
             }

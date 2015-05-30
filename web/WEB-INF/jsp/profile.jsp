@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Smart Friend - Child Monitor</title>
+        <title>Child Monitor</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,6 +64,9 @@
                         </li>
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
+                        </li>
+                        <li>
+                            <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
                         </li>
                     </ul>
                 </div>

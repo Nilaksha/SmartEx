@@ -65,3 +65,7 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).on('click', '#cancel', function () {
+    window.location.assign('/SmartEx/login');
+});

@@ -41,5 +41,29 @@ public class MessageServiceImpl implements MessageService {
         
         return messageDao.getInboxMessages(productID);
     }
+
+    @Override
+    public List<Message> getSentMessages(String productID) {
+
+        return messageDao.getSentMessages(productID);
+    }
+
+    @Override
+    public List<Message> getDraftMessages(String productID) {
+
+        return messageDao.getDraftMessages(productID);
+    }
+
+    @Override
+    public void saveMessage(Message message) {
+
+        messageDao.saveMessage(message);
+    }
+
+    @Override
+    public void sendMessage(Message message) {
+
+        messageDao.sendMessage(message);
+    }
     
 }

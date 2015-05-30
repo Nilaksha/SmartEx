@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,15 +49,25 @@ public class MessagesController {
     }
 
     @RequestMapping(value = "/sent", method = RequestMethod.POST)
-    public String draft(ModelMap model) {
+    @ResponseBody
+    public List<Message> getSentMessages(HttpSession session) {
 
-        return "draft";
+        String productID = session.getAttribute("productID").toString();
+        List<Message> messages = new ArrayList<>();
+        messages = messageService.getSentMessages(productID);
+
+        return messages;
     }
 
     @RequestMapping(value = "/draft", method = RequestMethod.POST)
-    public String trash(ModelMap model) {
+    @ResponseBody
+    public List<Message> getDraftMessages(HttpSession session) {
 
-        return "trash";
+        String productID = session.getAttribute("productID").toString();
+        List<Message> messages = new ArrayList<>();
+        messages = messageService.getDraftMessages(productID);
+
+        return messages;
     }
 
     @RequestMapping(value = "/newMessageCount", method = RequestMethod.POST)
@@ -77,5 +88,27 @@ public class MessagesController {
         int count = messageService.lastRepliedTime(productID);
 
         return Integer.toString(count);
+    }
+    
+    @RequestMapping(value = "/saveMessage", produces = "application/json", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean saveMessage(HttpSession session, @RequestBody Message message){
+    
+        String productID = session.getAttribute("productID").toString();
+        message.setProductID(Integer.parseInt(productID));
+        messageService.saveMessage(message);
+        
+        return true;
+    }
+    
+    @RequestMapping(value = "/sendMessage", produces = "application/json", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean sendMessage(HttpSession session, @RequestBody Message message){
+    
+        String productID = session.getAttribute("productID").toString();
+        message.setProductID(Integer.parseInt(productID)); 
+        messageService.sendMessage(message);
+        
+        return true;
     }
 }

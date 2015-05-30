@@ -15,12 +15,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Smart Friend - Child Monitor</title>
+        <title>Child Monitor</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
+        <link href="css/metisMenu.min.css" rel="stylesheet">        
         <link href="css/sb-admin.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
@@ -63,6 +64,9 @@
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                         </li>
+                        <li>
+                            <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -83,7 +87,7 @@
                                     <i class="fa fa-dashboard"></i>  <a href="javascript:dashboard();">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-edit"></i> Inbox
+                                    <i class="fa fa-envelope"></i> Messages
                                 </li>
                             </ol>
                         </div>
@@ -114,40 +118,42 @@
                                     </div>
                                 </div>
 
-
-                                <div class="col-lg-offset-2">
-                                    <button id="composeButton" type="button" class="checkbox btn btn-primary">Compose</button>
+                                <div class="col-lg-2">                                    
+                                    <button id="composeButton" type="button" class="checkbox btn btn-primary" data-toggle="modal" data-target="#messagePanel">Compose</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div id="emailCompose" class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa  fa-pencil fa-fw"></i> New Message</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Subject">
-                                    </div>
-                                    <div  class="form-group">
-                                        <textarea class="form-control" rows="3" placeholder="Type Message"></textarea>
-                                    </div>
-                                    <div class="container">
-                                        <div class="row">
-
-                                            <button id="sendButton" type="button" class="btn btn-outline btn-success">Send</button>
-                                            <button id="saveButton" type="button" class="btn btn-outline btn-primary">Save</button>
-                                            <button id="cancelButton" type="button" class="btn btn-outline btn-danger">Cancel</button>                                       
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                       
-                        </div>
-                    </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="messagePanel" tabindex="-1" role="dialog" aria-labelledby="messageLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="messageLabel"><i class="fa  fa-pencil fa-fw"></i> New Message</h4>									
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input id="messageSubject" class="form-control" placeholder="Subject">
+                                </div>
+                                <div  class="form-group">
+                                    <textarea id="messageBody" class="form-control" rows="3" placeholder="Type Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="sendButton" type="button" class="btn btn-outline btn-success">Send</button>
+                                <button id="saveButton" type="button" class="btn btn-outline btn-primary">Save</button>
+                                <button id="cancelButton" type="button" class="btn btn-outline btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
 
                 <div id="inboxPanel" class="row">
                     <div class="col-lg-12">
@@ -155,13 +161,14 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                     
+                                    <tr>          
+                                        <th class="col-lg-2">From</th>
                                         <th>Message</th>
-                                        <th class="col-lg-2">Date</th>
+                                        <th class="col-lg-2">Received Time</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -174,50 +181,34 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                     
+                                    <tr>        
+                                        <th class="col-lg-2">To</th>
                                         <th>Message</th>
-                                        <th class="col-lg-2">Date</th>
+                                        <th class="col-lg-2">Sent Time</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
-                                        for (int i = 0; i < 4; i++) {
-                                    %>
-                                    <tr>
-                                        <td>set the message</td>
-                                        <td>set the message date</td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>               
-                                
+
                 <div id="draftPanel" class="row">
                     <div class="col-lg-12">
 
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                     
+                                    <tr>   
+                                        <th class="col-lg-2">To</th>
                                         <th>Message</th>
-                                        <th class="col-lg-2">Date</th>
+                                        <th class="col-lg-2">Saved Time</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
-                                        for (int i = 0; i < 3; i++) {
-                                    %>
-                                    <tr>
-                                        <td>set the message</td>
-                                        <td>set the message date</td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
+
                                 </tbody>
                             </table>
                         </div>

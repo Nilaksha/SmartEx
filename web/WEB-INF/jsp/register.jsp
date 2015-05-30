@@ -75,7 +75,10 @@
                                         <label class="control-label">Product ID</label>
                                         <input id="productID" name="productID" class="form-control" placeholder="SmartDesk ID" type="password">
                                     </div>
-                                    <button id="save" class="btn btn-lg btn-success btn-block">Save</button>  
+                                    <div>
+                                        <button id="cancel" class="btn btn-outline btn-danger">Cancel</button> 
+                                        <button id="save" class="btn btn-outline btn-success">Save</button> 
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>

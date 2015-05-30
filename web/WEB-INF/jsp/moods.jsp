@@ -15,7 +15,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Smart Friend - Child Monitor</title>
+        <title>Child Monitor</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,6 +64,9 @@
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                         </li>
+                        <li>
+                            <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -77,7 +80,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Profile
+                                Moods
                                 <small></small>
                             </h1>
                             <ol class="breadcrumb">
@@ -85,7 +88,7 @@
                                     <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Moods
+                                    <i class="fa fa-child"></i> Moods
                                 </li>
                             </ol>
                         </div>

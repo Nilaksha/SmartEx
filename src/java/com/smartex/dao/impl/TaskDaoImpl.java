@@ -7,7 +7,6 @@ package com.smartex.dao.impl;
 
 import com.smartex.dao.BaseJdbcDao;
 import com.smartex.dao.TaskDao;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

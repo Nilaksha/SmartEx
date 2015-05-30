@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Smart Friend</title>
+        <title>Child Monitor</title>
 
         <link rel="icon" type="image/png" href="css/favicon-32x32.png" sizes="32x32" />
         <!-- Bootstrap Core CSS -->
@@ -69,6 +69,9 @@
                         </li>
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
+                        </li>
+                        <li>
+                            <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
                         </li>
                     </ul>
                 </div>

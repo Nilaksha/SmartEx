@@ -67,6 +67,9 @@
                         <li>
                             <a href="tasks"><i class="fa fa-fw fa-thumb-tack "></i> Tasks</a>
                         </li>
+                        <li>
+                            <a href="apps"><i class="fa fa-fw fa-th "></i> Apps</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
